@@ -42,15 +42,6 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // updateUser: (_, { authorId, firstName, lastName }) => {
-    //   const author = find(authors, { id: authorId });
-    //   if (!author) {
-    //     throw new Error(`Couldn’t find author with id ${authorId}`);
-    //   }
-    //   author.firstName = firstName;
-    //   author.lastName = lastName;
-    //   return author;
-    //  },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -78,19 +69,6 @@ const resolvers = {
 
         return event;
     },
-    // removeEvent: async (parent, { bookId }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { savedBooks: { bookId } } },
-    //       { new: true }
-    //     );
-
-    //     return updatedUser;
-    //   }
-
-    //   throw new AuthenticationError('You need to be logged in!');
-    // }
   },
 };
 
