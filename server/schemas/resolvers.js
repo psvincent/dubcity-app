@@ -52,15 +52,24 @@ const resolvers = {
     //   return author;
     //  },
     updateUser: async (parent, args, context) => {
-      const user = await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { avatar: "eagle" }
-        )
-      if (!context.user._id) {
-        throw new AuthenticationError('Incorrect credentials');
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+           args.userInfo,
+          { new: true }
+        );
+        return updatedUser;
       }
-
-      return user;
+      throw new AuthenticationError('You must be signed in!');
+    },
+    removeUser: async (parent, args, context) => {
+      if (context.user) {
+        const deleteUser = await User.findOneAndDelete(
+          { _id: context.user._id },
+        );
+        return deleteUser;
+      }
+      throw new AuthenticationError('You must be signed in!');
     },
     createEvent: async (parent, args) => {
        
