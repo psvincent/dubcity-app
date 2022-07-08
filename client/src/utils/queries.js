@@ -6,14 +6,25 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      savedBooks {
-        bookId
-        authors
-        image
-        description
-        title
-        link
-      }
+      avatar
+      role
+      games
+    }
+  }
+`;
+
+export const QUERY_EVENTS = gql`
+  {
+    getEvents {
+      _id
+      title
+      description
+      game
+      attendees
+      startDate
+      endDate
+      image
+      link
     }
   }
 `;

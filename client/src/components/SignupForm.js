@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
+import alienAvatar from '../assets/avatar/alien-avatar.png';
+import bearAvatar from '../assets/avatar/bear-avatar.png';
+import doggoAvatar from '../assets/avatar/doggo-avatar.png';
+import ghostAvatar from '../assets/avatar/ghost-avatar.png';
+import gorillaAvatar from '../assets/avatar/gorilla-avatar.png';
+
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
+
 import Auth from '../utils/auth';
+
+const avatarArray = [alienAvatar, bearAvatar, doggoAvatar, ghostAvatar, gorillaAvatar];
+const gamesArray = ['Onward', 'Contractors', 'Pavlov']
 
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
     email: '',
-    password: '',
+    password: ''
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -56,7 +66,7 @@ const SignupForm = () => {
     setUserFormData({
       username: '',
       email: '',
-      password: '',
+      password: ''
     });
   };
 
@@ -117,6 +127,38 @@ const SignupForm = () => {
           <Form.Control.Feedback type="invalid">
             Password is required!
           </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor="avatar">Select An Avatar</Form.Label>
+          <Form.Select aria-label="Default select example">
+            <option>Open this select menu</option>
+            <option value="1">
+              <img src={alienAvatar} alt="alien avatar"></img>
+            </option>
+            <option value="2">
+              <img src={bearAvatar} alt="bear avatar"></img>
+            </option>
+            <option value="3">
+              <img src={doggoAvatar} alt="doggo avatar"></img>
+            </option>
+            <option value="4">
+              <img src={ghostAvatar} alt="ghost avatar"></img>
+            </option>
+            <option value="5">
+              <img src={gorillaAvatar} alt="gorilla avatar"></img>
+            </option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor="games">Which games do you play?</Form.Label>
+          <Form.Select aria-label="Default select example">
+            <option>Open this select menu</option>
+            <option value="1">Onward</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Form.Select>
         </Form.Group>
         <Button
           disabled={

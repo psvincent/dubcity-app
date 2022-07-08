@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($username: String!, $email: String!, $password: String!, $avatar: String, $role: [String], $games: [String]) {
+    addUser(username: $username, email: $email, password: $password, avatar: $avatar, role: $role, games: $games) {
       token
       user {
         _id
@@ -24,38 +24,46 @@ export const ADD_USER = gql`
   }
 `;
 
-export const SAVE_BOOK = gql`
-  mutation saveBook($bookData: BookInput!) {
-    saveBook(bookData: $bookData) {
+export const UPDATE_USER = gql`
+  mutation updateUser($userInfo: updatedUserInput) {
+    updateUser(userInfo: $userInfo) {
       _id
       username
       email
-      savedBooks {
-        bookId
-        authors
-        image
-        description
-        title
-        link
-      }
+      password
+      avatar
+      role
+      games
     }
   }
 `;
 
-export const REMOVE_BOOK = gql`
-  mutation removeBook($bookId: ID!) {
-    removeBook(bookId: $bookId) {
+export const REMOVE_USER = gql`
+  mutation removeUser($_id: ID!) {
+    removeUser(_id: $_id) {
       _id
       username
       email
-      savedBooks {
-        bookId
-        authors
-        image
-        description
-        title
-        link
-      }
+      password
+      avatar
+      role
+      games
+    }
+  }
+`;
+
+export const CREATE_EVENT = gql`
+  mutation createEvent($title: String!, $description: String!, $game: [String], $attendees: [String], $startDate: String!, $endDate: String, $image: String, $link: String) {
+    createEvent(title: $title, description: $description, game: $game, attendees: $attendees, startDate: $startDate, endDate: $endDate, image: $image, link: $link) {
+      _id
+      title
+      description
+      game
+      attendees
+      startDate
+      endDate
+      image
+      link
     }
   }
 `;
