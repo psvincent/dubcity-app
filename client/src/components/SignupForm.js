@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-import alienAvatar from '../assets/avatar/alien-avatar.png';
+import alienAvatar from '../assets/avatar/alien-avatar.jpg';
 import bearAvatar from '../assets/avatar/bear-avatar.png';
 import doggoAvatar from '../assets/avatar/doggo-avatar.png';
 import ghostAvatar from '../assets/avatar/ghost-avatar.png';
-import gorillaAvatar from '../assets/avatar/gorilla-avatar.png';
+import gorillaAvatar from '../assets/avatar/gorilla-avatar.jpg';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -13,9 +13,15 @@ import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const avatarArray = [alienAvatar, bearAvatar, doggoAvatar, ghostAvatar, gorillaAvatar];
-const gamesArray = ['Onward', 'Contractors', 'Pavlov']
+// const avatarArray = [alienAvatar, bearAvatar, doggoAvatar, ghostAvatar, gorillaAvatar];
+// const gamesArray = ['Onward', 'Contractors', 'Pavlov']
+// const Select = () => {
+//   const [option] = useState([
+//     {
 
+//     }
+//   ])
+// }
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
@@ -131,12 +137,12 @@ const SignupForm = () => {
 
         <Form.Group>
           <Form.Label htmlFor="avatar">Select An Avatar</Form.Label>
-          <Form.Select aria-label="Default select example">
+          <Form.Control as="select" aria-label="Default select example">
             <option>Open this select menu</option>
             <option value="1">
-              <img src={alienAvatar} alt="alien avatar"></img>
+              {alienAvatar}
             </option>
-            <option value="2">
+            {/* <option value="2">
               <img src={bearAvatar} alt="bear avatar"></img>
             </option>
             <option value="3">
@@ -147,19 +153,10 @@ const SignupForm = () => {
             </option>
             <option value="5">
               <img src={gorillaAvatar} alt="gorilla avatar"></img>
-            </option>
-          </Form.Select>
+            </option> */}
+          </Form.Control>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="games">Which games do you play?</Form.Label>
-          <Form.Select aria-label="Default select example">
-            <option>Open this select menu</option>
-            <option value="1">Onward</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-        </Form.Group>
         <Button
           disabled={
             !(
