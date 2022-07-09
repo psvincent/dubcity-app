@@ -1,13 +1,7 @@
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import React from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
-
 import Navbar from './components/Navbar';
 
 // Construct our main GraphQL API endpoint
@@ -39,21 +33,16 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
-          {/* <Routes>
+          {<Routes>
             <Route 
               path="/" 
-              element={<SearchBooks />} 
-            />
-            <Route 
-              path="/saved" 
-              element={<SavedBooks />} 
+              element={<h1 className="display-2">Hello World!</h1>} 
             />
             <Route 
               path="*" 
               element={<h1 className="display-2">Wrong page!</h1>} 
             />
-          </Routes> */}
+          </Routes>}
         </>
       </Router>
     </ApolloProvider>
