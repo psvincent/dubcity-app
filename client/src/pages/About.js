@@ -17,7 +17,7 @@ const About = () => {
             </Container>
           </Jumbotron>
           <Container>
-              <p>Placeholder</p>
+              <p></p>
           </Container>
         </>
     )

@@ -13,16 +13,13 @@ import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-// const avatarArray = [alienAvatar, bearAvatar, doggoAvatar, ghostAvatar, gorillaAvatar];
-// const gamesArray = ['Onward', 'Contractors', 'Pavlov']
-// const Select = () => {
-//   const [option] = useState([
-//     {
 
-//     }
-//   ])
-// }
 const SignupForm = () => {
+  const gamesArray = [
+    'Onward',
+    'Contractors',
+    'Pavlov'
+  ];
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -136,25 +133,63 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="avatar">Select An Avatar</Form.Label>
-          <Form.Control as="select" aria-label="Default select example">
-            <option>Open this select menu</option>
-            <option value="1">
-              {alienAvatar}
-            </option>
-            {/* <option value="2">
-              <img src={bearAvatar} alt="bear avatar"></img>
-            </option>
-            <option value="3">
-              <img src={doggoAvatar} alt="doggo avatar"></img>
-            </option>
-            <option value="4">
-              <img src={ghostAvatar} alt="ghost avatar"></img>
-            </option>
-            <option value="5">
-              <img src={gorillaAvatar} alt="gorilla avatar"></img>
-            </option> */}
-          </Form.Control>
+          {['radio'].map((type) => (
+            <div key={`default-${type}`} className="mb-3">
+              <Form.Check
+                name="avatarOptions"
+                type={type}
+                id={`default-${type}`}
+                label={<img src={alienAvatar} alt='alien' />}
+
+              />
+              <Form.Check
+                name="avatarOptions"
+                type={type}
+                id={`default-${type}`}
+                label={<img src={doggoAvatar} alt='doggo' />}
+
+              />
+              <Form.Check
+                name="avatarOptions"
+                type={type}
+                id={`default-${type}`}
+                label={<img src={ghostAvatar} alt='ghost' />}
+
+              />
+              <Form.Check
+                name="avatarOptions"
+                type={type}
+                id={`default-${type}`}
+                label={<img src={gorillaAvatar} alt='gorilla' />}
+
+              />
+              <Form.Check
+                name="avatarOptions"
+                type={type}
+                id={`default-${type}`}
+                label={<img src={bearAvatar} alt='bear' />}
+
+              />
+            </div>
+
+          ))}
+        </Form.Group>
+        {['checkbox'].map((type) => (
+          <div key={`default-${type}`} className="mb-3">
+            {gamesArray.map((game) => {
+              return (
+                <Form.Check
+                  key={`${game}`}
+                  type={type}
+                  id={`default-${type}`}
+                  label={`${game}`}
+                />
+              )
+            })}
+          </div>
+        ))}
+        <Form.Group>
+
         </Form.Group>
 
         <Button
