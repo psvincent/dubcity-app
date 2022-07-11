@@ -35,6 +35,15 @@ const AppNavbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <div className='nav-bottom' id='nav-bottom-1'>
+
+      </div>
+      <div className='nav-bottom' id='nav-bottom-2'>
+        
+      </div>
+      <div className='nav-bottom' id='nav-bottom-3'>
+        
+      </div>
       {/* set modal data up */}
       <Modal
         size='lg'

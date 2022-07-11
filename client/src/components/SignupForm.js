@@ -133,52 +133,54 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
+          <Form.Label htmlFor="avatarOptions">Select an avatar</Form.Label>
           {['radio'].map((type) => (
             <div key={`default-${type}`} className="mb-3">
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
-                label={<img src={alienAvatar} alt='alien' />}
+                label={<img src={alienAvatar} alt='alien' className='avatarImage'/>}
 
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
-                label={<img src={doggoAvatar} alt='doggo' />}
+                label={<img src={doggoAvatar} alt='doggo' className='avatarImage'/>}
 
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
-                label={<img src={ghostAvatar} alt='ghost' />}
+                label={<img src={ghostAvatar} alt='ghost' className='avatarImage'/>}
 
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
-                label={<img src={gorillaAvatar} alt='gorilla' />}
+                label={<img src={gorillaAvatar} alt='gorilla' className='avatarImage'/>}
 
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
-                label={<img src={bearAvatar} alt='bear' />}
-
+                label={<img src={bearAvatar} alt='bear' className='avatarImage'/>}
               />
             </div>
 
           ))}
         </Form.Group>
+        <Form.Label htmlFor="gameOptions">Which games do you play?</Form.Label>
         {['checkbox'].map((type) => (
           <div key={`default-${type}`} className="mb-3">
             {gamesArray.map((game) => {
               return (
                 <Form.Check
+                  name="gameOptions"
                   key={`${game}`}
                   type={type}
                   id={`default-${type}`}
@@ -186,7 +188,7 @@ const SignupForm = () => {
                 />
               )
             })}
-          </div>
+            </div>
         ))}
         <Form.Group>
 
