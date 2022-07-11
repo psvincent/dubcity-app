@@ -1,36 +1,35 @@
 import React from 'react';
-import discord from '../assets/footer-icon/discord.png';
-import facebook from '../assets/footer-icon/facebook.png';
-import instagram from '../assets/footer-icon/instagram.png';
-import linktree from '../assets/footer-icon/linktree.png';
+
+
+
 
 const Footer = () => {
 
     const footerInfo = [
         {
             href: 'https://discord.gg/XWqhummP',
-            src: discord
+            src: 'fa fa-discord fa-2x'
         },
         {
             href: 'https://m.facebook.com/groups/990973958249372/',
-            src: 'fa fa-facebook-square'
+            src: 'fa fa-facebook-square fa-2x'
         },
         {
             href: 'https://www.instagram.com/invites/contact/?i=1koqnycqze8mc&utm_content=ouh00jk',
-            src: instagram
+            src: 'fa fa-instagram fa-2x'
         },
         {
             href: 'https://linktr.ee/dubcityvrtournaments',
-            src: linktree
+            src: 'fa fa-tree fa-2x'
         },
-        // {
-        //     href: 'https://www.twitch.tv/dubcityvrtournament',
-        //     src: twitch
-        // }
+        {
+            href: 'https://www.twitch.tv/dubcityvrtournament',
+            src: 'fa fa-twitch fa-2x'
+        }
     ]
 
     return (
-        <footer className='d-flex justify-content-center'>
+        <footer className='d-flex align-items-end'>
             {footerInfo.map((fields, index) => {
                 return (
                     <a key={index} href={fields.href}>

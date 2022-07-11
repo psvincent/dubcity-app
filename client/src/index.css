@@ -45,6 +45,14 @@ h6 {
   background-color: rgb(56, 40, 163);
 }
 
+footer {
+  width: 100%;
+}
+
+footer a {
+  margin: auto;
+}
+
 
 
 
