@@ -30,6 +30,9 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/eventForm'>
                     Event Form
                   </Nav.Link>
+                  <Nav.Link as={Link} to='/userPage'>
+                    User Profile
+                  </Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
