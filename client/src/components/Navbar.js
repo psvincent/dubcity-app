@@ -27,6 +27,9 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link as={Link} to='/eventForm'>
+                    Event Form
+                  </Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
@@ -39,10 +42,10 @@ const AppNavbar = () => {
 
       </div>
       <div className='nav-bottom' id='nav-bottom-2'>
-        
+
       </div>
       <div className='nav-bottom' id='nav-bottom-3'>
-        
+
       </div>
       {/* set modal data up */}
       <Modal
