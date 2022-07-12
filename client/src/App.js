@@ -38,7 +38,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
+          <Navbar class="navbar-element" />
           <Routes>              
             <Route 
               path="/" 

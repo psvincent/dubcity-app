@@ -11,9 +11,27 @@ h6 {
   font-family: 'Rubik Mono One', sans-serif;
 }
 
+h1 {
+  color: rgb(43, 18, 205);
+  text-shadow: 1px 1px white;
+}
+
+.logo {
+  max-height: 120px;
+  max-width: 120px;
+  margin: 5px;
+}
 .small {
   font-weight: 300;
   font-style: italic;
+}
+
+.navbar-container {
+  background-color: black;
+}
+
+.navbar-element {
+  color: white;
 }
 
 .avatarImage {
@@ -25,12 +43,11 @@ h6 {
 .mb-3 {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .nav-bottom {
  width: 100%;
- height: 6px;
+ height: 5px;
 }
 
 #nav-bottom-1 {
@@ -42,17 +59,28 @@ h6 {
 }
 
 #nav-bottom-3 {
-  background-color: rgb(56, 40, 163);
+  background-color: rgb(43, 18, 205);
+}
+
+.footer-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -110px;
+  width: 100%;
+  display: flex;
 }
 
 footer {
   width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
 }
 
 footer a {
   margin: auto;
 }
 
-
-
-
+.footerBottom, .push {
+  height: 110px;
+}
