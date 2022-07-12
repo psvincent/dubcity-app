@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="footer-container">
             {footerInfo.map((fields, index) => {
                 return (
-                    <a key={index} href={fields.href}>
+                    <a key={index} href={fields.href} target="_blank">
                         <i className={fields.src}></i>
                     </a>
                 )

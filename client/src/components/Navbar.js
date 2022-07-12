@@ -13,13 +13,13 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar expand='lg' className="navbar-container bg-dark text-white">
+      <Navbar expand='lg' className="navbar-container bg-black">
         <Container fluid>
           <Navbar.Brand as={Link} to='/' className="text-primary">
             <img className="logo" alt="dubcity logo" src={logo}/>
             Dub City VR Tournaments
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
+          <Navbar.Toggle aria-controls='navbar' className="bg-primary"/>
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/about' className="text-white">

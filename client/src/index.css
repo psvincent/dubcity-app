@@ -51,15 +51,20 @@ h1 {
 }
 
 #nav-bottom-1 {
-  background-color: aqua;
+  background-color: rgb(170, 244, 246);
 }
 
 #nav-bottom-2 {
-  background-color: yellow;
+  background-color: rgb(255, 253, 162);
 }
 
 #nav-bottom-3 {
-  background-color: rgb(43, 18, 205);
+  background-color: rgb(53, 101, 244);
+}
+
+.carousel-inner {
+  padding: 10px 0;
+  background: linear-gradient(black, white);
 }
 
 .footer-container {
@@ -69,6 +74,7 @@ h1 {
   margin: 0 auto -110px;
   width: 100%;
   display: flex;
+  background-color: black;
 }
 
 footer {
