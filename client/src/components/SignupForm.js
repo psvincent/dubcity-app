@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert, FormGroup, DropdownButton, Dropdown } from 'react-bootstrap'
-
 import alienAvatar from '../assets/avatar/alien-avatar.jpg';
 import bearAvatar from '../assets/avatar/bear-avatar.png';
 import doggoAvatar from '../assets/avatar/doggo-avatar.png';
@@ -21,6 +20,16 @@ const SignupForm = () => {
     'Contractors',
     'Pavlov'
   ];
+
+  // Create avatar path object
+  const avatarOpt = [
+    { value: alienAvatar, alt: 'Alien Avatar' },
+    { value: bearAvatar, alt: 'Bear Avatar' },
+    { value: doggoAvatar, alt: 'Doggo Avatar' },
+    { value: ghostAvatar, alt: 'Ghost Avatar' },
+    { value: gorillaAvatar, alt: 'Gorilla Avatar' }
+  ];
+
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -49,6 +58,15 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+
+  const [selectedValue,setValue]=useState('');
+
+  // OnChange for avatar selector
+  const handleSelectChange = (event) =>{
+    console.log(event)
+    setValue(event)
+  }
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -73,7 +91,6 @@ const SignupForm = () => {
       username: '',
       email: '',
       password: '',
-      avatar: ''
     });
   };
 
@@ -136,13 +153,25 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <DropdownButton title="Avatar" id="bg-nested-dropdown">
-          <Dropdown.Item name="avatar" value={alienAvatar} onChange={handleInputChange}><img src={alienAvatar} alt='alien' className='avatarImage'/></Dropdown.Item>
-          <Dropdown.Item name="avatar" value={doggoAvatar}><img src={doggoAvatar} alt='doggo' className='avatarImage'/></Dropdown.Item>
-          <Dropdown.Item name="avatar" value={ghostAvatar}><img src={ghostAvatar} alt='ghost' className='avatarImage'/></Dropdown.Item>
-          <Dropdown.Item name="avatar" value={gorillaAvatar}><img src={gorillaAvatar} alt='gorilla' className='avatarImage'/></Dropdown.Item>
-          <Dropdown.Item name="avatar" value={bearAvatar}><img src={bearAvatar} alt='bear' className='avatarImage'/></Dropdown.Item>
-        </DropdownButton>
+        <FormGroup>
+          <DropdownButton 
+            title="Select Avatar"
+            id="bg-nested-dropdown"  
+            onSelect={handleSelectChange}
+            value={userFormData.avatar = selectedValue}>
+
+              {avatarOpt.map(option => (
+                <Dropdown.Item 
+                  key={option.value} 
+                  eventKey={option.value}>
+                    <img 
+                      src={option.value} 
+                      alt={option.alt} 
+                      className='avatarImage'/>
+                </Dropdown.Item>
+              ))}
+          </DropdownButton>
+        </FormGroup>
 
         {/* <Form.Group>
           <Form.Label htmlFor="avatarOptions">Select an avatar</Form.Label>
@@ -202,7 +231,7 @@ const SignupForm = () => {
                     name="gameOptions"
                     key={`${game}`}
                     type={type}
-                    id={`default-${type}`}
+                    className={`default-${type}`}
                     label={`${game}`}
                   />
                 )
