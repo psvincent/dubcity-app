@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UserPage from './pages/UserPage';
 import Homepage from './pages/Homepage';
-
+import EventList from './components/Events';
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -43,6 +43,10 @@ function App() {
             <Route 
               path="/" 
               element={<Homepage />} 
+            />
+            <Route 
+              path="/" 
+              element={<EventList />} 
             />
             <Route 
               path="*" 
