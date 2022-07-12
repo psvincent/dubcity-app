@@ -7,6 +7,7 @@ import EventForm from './pages/EventForm';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UserPage from './pages/UserPage';
+import Homepage from './pages/Homepage';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -41,7 +42,7 @@ function App() {
           <Routes>              
             <Route 
               path="/" 
-              element={<h1 className="display-2">Hello World!</h1>} 
+              element={<Homepage />} 
             />
             <Route 
               path="*" 

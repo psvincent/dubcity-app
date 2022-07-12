@@ -148,7 +148,7 @@ const SignupForm = () => {
               <Form.Check
                 name="avatarOptions"
                 type={type}
-                id={`disabled-default-${type}`}
+                id={`default-${type}`}
                 label={<img src={doggoAvatar} alt='doggo' className='avatarImage'/>}
                 //value="no"
                 //checked={selected === "no"}
