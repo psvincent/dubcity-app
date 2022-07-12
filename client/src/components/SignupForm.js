@@ -24,8 +24,10 @@ const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
     username: '',
     email: '',
-    password: ''
+    password: '',
+    avatar: ''
   });
+
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -141,34 +143,39 @@ const SignupForm = () => {
                 type={type}
                 id={`default-${type}`}
                 label={<img src={alienAvatar} alt='alien' className='avatarImage'/>}
-
+                //checked={selected === 'yes'}
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
-                id={`default-${type}`}
+                id={`disabled-default-${type}`}
                 label={<img src={doggoAvatar} alt='doggo' className='avatarImage'/>}
-
+                //value="no"
+                //checked={selected === "no"}
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
                 label={<img src={ghostAvatar} alt='ghost' className='avatarImage'/>}
-
+                //value="no"
+                //checked={selected === "no"}
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
                 label={<img src={gorillaAvatar} alt='gorilla' className='avatarImage'/>}
-
+                //value="no"
+                //checked={selected === "no"}
               />
               <Form.Check
                 name="avatarOptions"
                 type={type}
                 id={`default-${type}`}
                 label={<img src={bearAvatar} alt='bear' className='avatarImage'/>}
+                //value="no"
+                //checked={selected === "no"}
               />
             </div>
 
