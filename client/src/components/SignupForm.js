@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, FormGroup, DropdownButton, Dropdown } from 'react-bootstrap'
 
 import alienAvatar from '../assets/avatar/alien-avatar.jpg';
 import bearAvatar from '../assets/avatar/bear-avatar.png';
@@ -12,6 +12,7 @@ import { ADD_USER } from '../utils/mutations';
 
 
 import Auth from '../utils/auth';
+import { FormRow } from 'react-bootstrap/Form';
 
 
 const SignupForm = () => {
@@ -71,7 +72,8 @@ const SignupForm = () => {
     setUserFormData({
       username: '',
       email: '',
-      password: ''
+      password: '',
+      avatar: ''
     });
   };
 
@@ -134,7 +136,15 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <DropdownButton title="Avatar" id="bg-nested-dropdown">
+          <Dropdown.Item name="avatar" value={alienAvatar} onChange={handleInputChange}><img src={alienAvatar} alt='alien' className='avatarImage'/></Dropdown.Item>
+          <Dropdown.Item name="avatar" value={doggoAvatar}><img src={doggoAvatar} alt='doggo' className='avatarImage'/></Dropdown.Item>
+          <Dropdown.Item name="avatar" value={ghostAvatar}><img src={ghostAvatar} alt='ghost' className='avatarImage'/></Dropdown.Item>
+          <Dropdown.Item name="avatar" value={gorillaAvatar}><img src={gorillaAvatar} alt='gorilla' className='avatarImage'/></Dropdown.Item>
+          <Dropdown.Item name="avatar" value={bearAvatar}><img src={bearAvatar} alt='bear' className='avatarImage'/></Dropdown.Item>
+        </DropdownButton>
+
+        {/* <Form.Group>
           <Form.Label htmlFor="avatarOptions">Select an avatar</Form.Label>
           {['radio'].map((type) => (
             <div key={`default-${type}`} className="mb-3">
@@ -143,7 +153,7 @@ const SignupForm = () => {
                 type={type}
                 id={`default-${type}`}
                 label={<img src={alienAvatar} alt='alien' className='avatarImage'/>}
-                //checked={selected === 'yes'}
+                checked={true}
               />
               <Form.Check
                 name="avatarOptions"
@@ -180,25 +190,25 @@ const SignupForm = () => {
             </div>
 
           ))}
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group>
-        <Form.Label htmlFor="gameOptions">Which games do you play?</Form.Label>
-        {['checkbox'].map((type) => (
-          <div key={`default-${type}`} className="mb-3">
-            {gamesArray.map((game) => {
-              return (
-                <Form.Check
-                  name="gameOptions"
-                  key={`${game}`}
-                  type={type}
-                  id={`default-${type}`}
-                  label={`${game}`}
-                />
-              )
-            })}
+          <Form.Label htmlFor="gameOptions">Which games do you play?</Form.Label>
+          {['checkbox'].map((type) => (
+            <div key={`default-${type}`} className="mb-3">
+              {gamesArray.map((game) => {
+                return (
+                  <Form.Check
+                    name="gameOptions"
+                    key={`${game}`}
+                    type={type}
+                    id={`default-${type}`}
+                    label={`${game}`}
+                  />
+                )
+              })}
             </div>
-        ))}
+          ))}
         </Form.Group>
 
         <Button
