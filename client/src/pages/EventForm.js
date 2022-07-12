@@ -5,6 +5,12 @@ import { Form, Alert, Button } from 'react-bootstrap';
 
 const EventForm = () => {
 
+    const gamesArray = [
+        'Onward',
+        'Contractors',
+        'Pavlov'
+    ];
+
     const [eventFormData, setEventFormData] = useState({
         title: '',
         description: '',
@@ -32,6 +38,22 @@ const EventForm = () => {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setEventFormData({ ...eventFormData, [name]: value });
+    };
+
+    /** Game Checkbox **/
+    // Set state  gor game checkbox
+    const [checked, setChecked] = useState([]);
+
+    // OnChange for Game Checkbox group
+    const handleCheck = (event) => {
+        var updatedList = [...checked];
+        if (event.target.checked) {
+        updatedList = [...checked, event.target.value];
+        } else {
+        updatedList.splice(checked.indexOf(event.target.value), 1);
+        }
+        console.log(updatedList);
+        setChecked(updatedList);
     };
 
     const handleFormSubmit = async (event) => {
@@ -105,14 +127,24 @@ const EventForm = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label htmlFor="game">Game:</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="May input multiple games"
-                        name="game"
-                        onChange={handleInputChange}
-                        value={eventFormData.game}
-                    />
+                    <Form.Label htmlFor="gameOptions">Which games do you play?</Form.Label>
+                    {['checkbox'].map((type) => (
+                        <div value={eventFormData.game = checked} key={`default-${type}`} className="mb-3">
+                            {gamesArray.map((game) => {
+                                return (
+                                    <Form.Check
+                                        name="gameOptions"
+                                        key={`${game}`}
+                                        type={type}
+                                        value={game}
+                                        onChange={handleCheck}
+                                        className={`default-${type}`}
+                                        label={`${game}`}
+                                    />
+                                )
+                            })}
+                        </div>
+                    ))}
                 </Form.Group>
                 <Form.Group>
                     <Form.Label htmlFor="startDate">Start Date:</Form.Label>
