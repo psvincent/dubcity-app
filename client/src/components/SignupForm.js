@@ -5,13 +5,10 @@ import bearAvatar from '../assets/avatar/bear-avatar.png';
 import doggoAvatar from '../assets/avatar/doggo-avatar.png';
 import ghostAvatar from '../assets/avatar/ghost-avatar.png';
 import gorillaAvatar from '../assets/avatar/gorilla-avatar.jpg';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
-
 import Auth from '../utils/auth';
-import { FormRow } from 'react-bootstrap/Form';
+
 
 
 const SignupForm = () => {
@@ -35,7 +32,8 @@ const SignupForm = () => {
     username: '',
     email: '',
     password: '',
-    avatar: ''
+    avatar: '',
+    games: []
   });
 
   // set state for form validation
@@ -58,7 +56,8 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-
+  /** Avatar Seletctor **/
+  // Set state for avatar selector
   const [selectedValue,setValue]=useState('');
 
   // OnChange for avatar selector
@@ -66,6 +65,23 @@ const SignupForm = () => {
     console.log(event)
     setValue(event)
   }
+
+  /** Game Checkbox **/
+  // Set state  gor game checkbox
+  const [checked, setChecked] = useState([]);
+
+  // OnChange for Game Checkbox group
+  const handleCheck = (event) => {
+    var updatedList = [...checked];
+    if (event.target.checked) {
+      updatedList = [...checked, event.target.value];
+    } else {
+      updatedList.splice(checked.indexOf(event.target.value), 1);
+    }
+    console.log(updatedList);
+    setChecked(updatedList);
+  };
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -173,64 +189,18 @@ const SignupForm = () => {
           </DropdownButton>
         </FormGroup>
 
-        {/* <Form.Group>
-          <Form.Label htmlFor="avatarOptions">Select an avatar</Form.Label>
-          {['radio'].map((type) => (
-            <div key={`default-${type}`} className="mb-3">
-              <Form.Check
-                name="avatarOptions"
-                type={type}
-                id={`default-${type}`}
-                label={<img src={alienAvatar} alt='alien' className='avatarImage'/>}
-                checked={true}
-              />
-              <Form.Check
-                name="avatarOptions"
-                type={type}
-                id={`default-${type}`}
-                label={<img src={doggoAvatar} alt='doggo' className='avatarImage'/>}
-                //value="no"
-                //checked={selected === "no"}
-              />
-              <Form.Check
-                name="avatarOptions"
-                type={type}
-                id={`default-${type}`}
-                label={<img src={ghostAvatar} alt='ghost' className='avatarImage'/>}
-                //value="no"
-                //checked={selected === "no"}
-              />
-              <Form.Check
-                name="avatarOptions"
-                type={type}
-                id={`default-${type}`}
-                label={<img src={gorillaAvatar} alt='gorilla' className='avatarImage'/>}
-                //value="no"
-                //checked={selected === "no"}
-              />
-              <Form.Check
-                name="avatarOptions"
-                type={type}
-                id={`default-${type}`}
-                label={<img src={bearAvatar} alt='bear' className='avatarImage'/>}
-                //value="no"
-                //checked={selected === "no"}
-              />
-            </div>
-
-          ))}
-        </Form.Group> */}
-
         <Form.Group>
           <Form.Label htmlFor="gameOptions">Which games do you play?</Form.Label>
           {['checkbox'].map((type) => (
-            <div key={`default-${type}`} className="mb-3">
+            <div value={userFormData.games = checked} key={`default-${type}`} className="mb-3">
               {gamesArray.map((game) => {
                 return (
                   <Form.Check
                     name="gameOptions"
                     key={`${game}`}
                     type={type}
+                    value={game}
+                    onChange={handleCheck}
                     className={`default-${type}`}
                     label={`${game}`}
                   />
