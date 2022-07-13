@@ -13,7 +13,7 @@
   * [Questions](#questions)
 
   ## Usage
-  1. Go to *input web url* to view application.
+  1. Go to https://dub-city-vr-tournaments.herokuapp.com/ to view application.
 
 
 
