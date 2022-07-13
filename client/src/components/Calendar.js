@@ -8,7 +8,6 @@ const localizer = momentLocalizer(moment)
 const MyCalendar = props => {
   const { loading, data } = useQuery(QUERY_EVENTS);
   const eventData = data?.getEvents || {};
-  console.log(eventData);
   let myEventsList = [];
   if (!loading) {
     myEventsList = eventData?.map((event) => {
@@ -25,7 +24,6 @@ const MyCalendar = props => {
     })
   }
 
-  console.log(myEventsList);
   if (loading) {
     return (
       <h2>LOADING...</h2>

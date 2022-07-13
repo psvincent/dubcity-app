@@ -53,7 +53,6 @@ const EventForm = () => {
         } else {
         updatedList.splice(checked.indexOf(event.target.value), 1);
         }
-        console.log(updatedList);
         setChecked(updatedList);
     };
 
@@ -71,7 +70,6 @@ const EventForm = () => {
             const { data } = await createEvent({
                 variables: { ...eventFormData },
             });
-            console.log(data);
         } catch (err) {
             console.error(err);
         }

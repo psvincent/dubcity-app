@@ -62,8 +62,7 @@ const SignupForm = () => {
 
   // OnChange for avatar selector
   const handleSelectChange = (event) =>{
-    console.log(event)
-    setValue(event)
+    setValue(event);
   }
 
   /** Game Checkbox **/
@@ -78,7 +77,6 @@ const SignupForm = () => {
     } else {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
-    console.log(updatedList);
     setChecked(updatedList);
   };
 
@@ -97,7 +95,6 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-      console.log(data);
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
