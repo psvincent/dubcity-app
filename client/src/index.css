@@ -1,3 +1,7 @@
+:root{
+  --dubCity-blue: rgb(53, 101, 244);
+}
+
 body {
   font-family: 'Rubik', sans-serif;
 }
@@ -11,9 +15,22 @@ h6 {
   font-family: 'Rubik Mono One', sans-serif;
 }
 
+.logo {
+  max-height: 120px;
+  max-width: 120px;
+  margin: 5px;
+}
 .small {
   font-weight: 300;
   font-style: italic;
+}
+
+.navbar-container {
+  background-color: black;
+}
+
+.navbar-element {
+  color: white;
 }
 
 .avatarImage {
@@ -25,34 +42,73 @@ h6 {
 .mb-3 {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .nav-bottom {
  width: 100%;
- height: 6px;
+ height: 5px;
 }
 
 #nav-bottom-1 {
-  background-color: aqua;
+  background-color: rgb(170, 244, 246);
 }
 
 #nav-bottom-2 {
-  background-color: yellow;
+  background-color: rgb(255, 253, 162);
 }
 
 #nav-bottom-3 {
-  background-color: rgb(56, 40, 163);
+  background-color: var(--dubCity-blue);
+}
+
+.carousel-inner {
+  padding: 10px 0;
+  background: linear-gradient(black, white);
+}
+
+.about-header{
+  width: 60vw;
+  margin: 2vh auto;
+  background: linear-gradient(black, var(--dubCity-blue));
+}
+
+.about-header h1{
+  color: white;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  font-size: 60px;
+}
+
+.about-body{
+  background: linear-gradient(var(--dubCity-blue), black);
+  color: white;
+  height: 45vh
+}
+
+.footer-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -110px;
+  width: 100%;
+  display: flex;
+  background-color: black;
 }
 
 footer {
   width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
 }
 
 footer a {
   margin: auto;
 }
 
+.footerBottom, .push {
+  height: 110px;
+}
 
-
-
+.navActive {
+  color: var(--dubCity-blue);
+}

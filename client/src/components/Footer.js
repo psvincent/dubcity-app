@@ -30,13 +30,17 @@ const Footer = () => {
 
     return (
         <footer className='d-flex align-items-end'>
+            <div className="footer-container">
             {footerInfo.map((fields, index) => {
                 return (
-                    <a key={index} href={fields.href}>
+                    <a key={index} href={fields.href} target="_blank">
                         <i className={fields.src}></i>
                     </a>
                 )
             })}
+            <div className="push"></div>
+            </div>
+            <div className="footerBottom"></div>
         </footer>
     )
 }

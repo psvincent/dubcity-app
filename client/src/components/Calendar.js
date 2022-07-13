@@ -38,7 +38,7 @@ const MyCalendar = props => {
         events={myEventsList}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500 }}
+        style={{ height: "50vh", width: "90vw", margin: "auto"}}
       />
     </div>
   )

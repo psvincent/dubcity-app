@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
+import logo from '../assets/images/favicon.png'
 
 import Auth from '../utils/auth';
 
@@ -12,33 +13,34 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar expand='lg' className="navbar-container bg-black">
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
+          <Navbar.Brand as={Link} to='/' className="text-primary">
+            <img className="logo" alt="dubcity logo" src={logo}/>
             Dub City VR Tournaments
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
+          <Navbar.Toggle aria-controls='navbar' className="bg-primary"/>
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/about'>
+              <Nav.Link as={Link} to='/about' className="text-white">
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to='/'>
+              <Nav.Link as={Link} to='/' className="text-white">
                 Homepage
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                  <Nav.Link as={Link} to='/eventForm'>
+                  <Nav.Link onClick={Auth.logout} className="text-white">Logout</Nav.Link>
+                  <Nav.Link as={Link} to='/eventForm' className="text-white">
                     Event Form
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/userPage'>
+                  <Nav.Link as={Link} to='/userPage' className="text-white">
                     User Profile
                   </Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)} className="text-white">Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>

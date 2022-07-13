@@ -39,7 +39,7 @@ function App() {
       <Router>
         <>
           <Navbar />
-          <Routes>              
+          <Routes className="body">              
             <Route 
               path="/" 
               element={<Homepage />} 
