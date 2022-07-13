@@ -48,5 +48,5 @@ https://user-images.githubusercontent.com/95265770/178806729-c3f05b6c-7153-4f34-
   ## Questions
   1. Maria Meyer: [GITHUB](https://github.com/mmeyer715)	[EMAIL](mailto:mbean1216@icloud.com)
   2. Colleen Murray: [GITHUB](https://github.com/colleenkhm)	[EMAIL](mailto:colleenkhm@gmail.com) 
-  3. Philip Vincent Harris: [GITHUB](https://github.com/psvincent)	[EMAIL](mailto:psvincent12@gmail.com)
+  3. Philip Vincent: [GITHUB](https://github.com/psvincent)	[EMAIL](mailto:psvincent12@gmail.com)
   4. Lucas Zimmerman: [GITHUB](https://github.com/dolomiteson)	[EMAIL](mailto:zimmerman.lucas@hotmail.com)
