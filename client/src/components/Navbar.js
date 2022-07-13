@@ -5,6 +5,8 @@ import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import EventForm from './EventForm';
 import logo from '../assets/images/favicon.png'
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -12,6 +14,8 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
   const [showEventModal, setShowEventModal] = useState(false);
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || {};
 
   return (
     <>
@@ -39,7 +43,7 @@ const AppNavbar = () => {
                   </Nav.Link> */}
                   <Nav.Link onClick={() => setShowEventModal(true)} className="text-white">Event Form</Nav.Link>
                   <Nav.Link as={Link} to='/userPage' className="text-white">
-                    User Profile
+                    <img className='avatarImage' src={userData.avatar}></img>
                   </Nav.Link>
                 </>
               ) : (
