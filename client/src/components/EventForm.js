@@ -134,7 +134,7 @@ const EventForm = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label htmlFor="gameOptions">Which games do you play?</Form.Label>
+                    <Form.Label htmlFor="gameOptions">Which games are for this event?</Form.Label>
                     {['checkbox'].map((type) => (
                         <div value={eventFormData.game = checked} key={`default-${type}`} className="mb-3">
                             {gamesArray.map((game) => {

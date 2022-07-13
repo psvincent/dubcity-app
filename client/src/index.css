@@ -66,6 +66,8 @@ h6 {
   background: linear-gradient(black, white);
 }
 
+/* About Page */
+
 .about-header{
   width: 60vw;
   margin: 2vh auto;
@@ -83,6 +85,40 @@ h6 {
   background: linear-gradient(var(--dubCity-blue), black);
   color: white;
   height: 45vh
+}
+
+/* User Page */
+.user-header{
+  width: 60vw;
+  margin: 2vh auto;
+  background: linear-gradient(black, var(--dubCity-blue));
+  position: relative;
+}
+
+.user-header h1{
+  color: white;
+  text-shadow: 1px 1px black;
+  text-align: left;
+  font-size: 2vh;
+  overflow: auto;
+}
+
+.user-body{
+  background: linear-gradient(var(--dubCity-blue), black);
+  color: white;
+  height: 45vh;
+}
+
+.user-body img{
+  width: 30vw;
+  height: 30vh;
+  margin: 20px auto;
+  display: block;
+}
+
+.user-body button{
+  margin: 20px auto;
+  display: block;
 }
 
 .footer-container {

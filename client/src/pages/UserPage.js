@@ -39,26 +39,27 @@ const UserPage = () => {
 
     return (
         <>
-            <Jumbotron fluid>
+            <Jumbotron fluid className='user-header'>
                 <Container>
-                    <h1>{userData.username}</h1>
+                    <h1>Username: {userData.username}</h1>
+                    <h1>Email: {userData.email}</h1>
+                    <h1>Games: {userData.games}</h1>
                 </Container>
             </Jumbotron>
-            <Container>
+            <Container className='user-body'>
                 <Container>
                     <img
                         src={userData.avatar}
-                        alt=''
+                        alt="User's Avatar"
                     />
-                    <p>
-                        Games: {userData.games}
-                    </p>
                 </Container>
-                <Button
-                    onClick={() => handleDeleteUser(userData._id)}
-                >
-                    Delete My Account!
-                </Button>
+                <Container className='mt-2'>
+                    <Button
+                        onClick={() => handleDeleteUser(userData._id)}
+                    >
+                        Delete My Account!
+                    </Button>
+                </Container>
             </Container>
         </>
     )
