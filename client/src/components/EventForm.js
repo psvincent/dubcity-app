@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { CREATE_EVENT } from '../utils/mutations';
 import { Form, Alert, Button } from 'react-bootstrap';
@@ -85,6 +86,12 @@ const EventForm = () => {
             link: ''
         });
     };
+
+    // create path to homepage on event submit
+    const navigate = useNavigate();
+    const navigateToHomepage = () => {
+        navigate('/');
+    }
 
     return (
         <>
@@ -196,6 +203,7 @@ const EventForm = () => {
                     }
                     type="submit"
                     variant="success"
+                    onClick={navigateToHomepage}
                 >
                     Submit
                 </Button>

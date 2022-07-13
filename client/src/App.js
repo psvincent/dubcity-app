@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
 import About from './pages/About';
-import EventForm from './pages/EventForm';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UserPage from './pages/UserPage';
@@ -55,10 +54,6 @@ function App() {
             <Route
               path="/about"
               element={<About />}
-            />
-            <Route
-              path="/eventForm"
-              element={<EventForm />}
             />
             <Route
               path="/userPage"

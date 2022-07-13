@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
+import EventForm from './EventForm';
 import logo from '../assets/images/favicon.png'
 
 import Auth from '../utils/auth';
@@ -10,16 +11,17 @@ import Auth from '../utils/auth';
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+  const [showEventModal, setShowEventModal] = useState(false);
 
   return (
     <>
       <Navbar expand='lg' className="navbar-container bg-black">
         <Container fluid>
           <Navbar.Brand as={Link} to='/' className="text-primary">
-            <img className="logo" alt="dubcity logo" src={logo}/>
+            <img className="logo" alt="dubcity logo" src={logo} />
             Dub City VR Tournaments
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' className="bg-primary"/>
+          <Navbar.Toggle aria-controls='navbar' className="bg-primary" />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/about' className="text-white">
@@ -32,9 +34,10 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link onClick={Auth.logout} className="text-white">Logout</Nav.Link>
-                  <Nav.Link as={Link} to='/eventForm' className="text-white">
+                  {/* <Nav.Link as={Link} to='/eventForm' className="text-white">
                     Event Form
-                  </Nav.Link>
+                  </Nav.Link> */}
+                  <Nav.Link onClick={() => setShowEventModal(true)} className="text-white">Event Form</Nav.Link>
                   <Nav.Link as={Link} to='/userPage' className="text-white">
                     User Profile
                   </Nav.Link>
@@ -56,6 +59,32 @@ const AppNavbar = () => {
 
       </div>
       {/* set modal data up */}
+      {/*Event Modal*/}
+      <Modal
+        size='lg'
+        show={showEventModal}
+        onHide={() => setShowEventModal(false)}
+        aria-labelledby='event-modal'>
+        <Tab.Container defaultActiveKey='event'>
+          <Modal.Header closeButton>
+            <Modal.Title id='event-modal'>
+              <Nav.Item>
+                <Nav.Link eventKey='event'>Event Form</Nav.Link>
+              </Nav.Item>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Tab.Content>
+              <Tab.Pane eventKey='event'>
+                <EventForm handleModalClose={() => setShowEventModal(false)} />
+              </Tab.Pane>
+            </Tab.Content>
+          </Modal.Body>
+
+        </Tab.Container>
+
+      </Modal>
+       {/*Login/Signup Modal*/}
       <Modal
         size='lg'
         show={showModal}
