@@ -36,6 +36,7 @@ h6 {
 .avatarImage {
   max-width: 50px;
   max-height: 50px;
+  border-radius: 50%;
   display: flex;
 };
 
@@ -69,9 +70,11 @@ h6 {
 /* About Page */
 
 .about-header{
-  width: 60vw;
+  /* width: 60vw; */
   margin: 2vh auto;
   background: linear-gradient(black, var(--dubCity-blue));
+  width: 80%;
+  height: fit-content;
 }
 
 .about-header h1{
@@ -84,12 +87,14 @@ h6 {
 .about-body{
   background: linear-gradient(var(--dubCity-blue), black);
   color: white;
-  height: 45vh
+  height: 80vh;
+  width: 80%;
+  overflow: scroll;
 }
 
 /* User Page */
 .user-header{
-  width: 60vw;
+  width: 80%;
   margin: 2vh auto;
   background: linear-gradient(black, var(--dubCity-blue));
   position: relative;
@@ -111,6 +116,7 @@ h6 {
   background: linear-gradient(var(--dubCity-blue), black);
   color: white;
   height: 45vh;
+  width: 80%;
 }
 
 .user-body img{

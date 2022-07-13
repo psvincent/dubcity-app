@@ -36,11 +36,6 @@ const About = () => {
 
           We aim to establish ourselves as the #1 Brand for gaming events and tournaments. Also, we aim to grow larger in members to create a a healthy environment for players young and old.
           Finally, we aim to publicize our efforts through live broadcasting of our events and tournaments.
-
-          How that benefits you:
-
-          We are looking for sponsorship from companies we can stand behind. Given are members and desire to grow: We intend to promote ourselves and our sponsors through marketing
-          strategies implemented in ourcommunity servers and social media platform.
         </p>
       </Container>
     </>
