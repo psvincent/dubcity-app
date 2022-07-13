@@ -3,6 +3,7 @@ import {
     Jumbotron,
     Container,
     Button,
+    Image
 } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -46,9 +47,10 @@ const UserPage = () => {
                     <h1>Games: {userData.games}</h1>
                 </Container>
             </Jumbotron>
-            <Container className='user-body'>
+            <Container fluid className='user-body'>
                 <Container>
-                    <img
+                    <Image
+                        className='userAvatar'
                         src={userData.avatar}
                         alt="User's Avatar"
                     />

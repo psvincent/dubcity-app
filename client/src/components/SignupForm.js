@@ -13,9 +13,9 @@ import Auth from '../utils/auth';
 
 const SignupForm = () => {
   const gamesArray = [
-    'Onward',
-    'Contractors',
-    'Pavlov'
+    'Onward' + ' '.repeat(1),
+    'Contractors' + ' '.repeat(1),
+    'Pavlov' + ' '.repeat(1)
   ];
 
   // Create avatar path object
